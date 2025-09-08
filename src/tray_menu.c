@@ -331,9 +331,13 @@ void ShowColorMenu(HWND hwnd) {
     AppendMenuW(hFormatMenu, MF_STRING | (CLOCK_SHOW_MILLISECONDS ? MF_CHECKED : MF_UNCHECKED),
                 CLOCK_IDM_TIME_FORMAT_SHOW_MILLISECONDS,
                 GetLocalizedString(L"显示毫秒", L"Show Milliseconds"));
-    
+
     AppendMenuW(hTimeOptionsMenu, MF_SEPARATOR, 0, NULL);
-    
+
+    AppendMenuW(hTimeOptionsMenu, MF_STRING | (CLOCK_TICK_SOUND ? MF_CHECKED : MF_UNCHECKED),
+                CLOCK_IDM_TICK_SOUND,
+                GetLocalizedString(L"滴答声", L"Tick Tock Sound"));
+
     AppendMenuW(hTimeOptionsMenu, MF_STRING | (CLOCK_WINDOW_TOPMOST ? MF_CHECKED : MF_UNCHECKED),
                 CLOCK_IDM_TOPMOST,
                 GetLocalizedString(L"置顶", L"Always on Top"));

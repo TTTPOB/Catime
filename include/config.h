@@ -120,6 +120,9 @@ extern TimeFormatType PREVIEW_TIME_FORMAT;
 /** @brief Centiseconds display setting (2-digit precision) */
 extern BOOL CLOCK_SHOW_MILLISECONDS;
 
+/** @brief Tick-tock countdown sound enabled flag */
+extern BOOL CLOCK_TICK_SOUND;
+
 /** @brief Centiseconds preview variables */
 extern BOOL IS_MILLISECONDS_PREVIEWING;
 extern BOOL PREVIEW_SHOW_MILLISECONDS;
@@ -492,6 +495,12 @@ void WriteConfigTimeFormat(TimeFormatType format);
  * @param showMilliseconds TRUE to show milliseconds, FALSE to hide
  */
 void WriteConfigShowMilliseconds(BOOL showMilliseconds);
+
+/**
+ * @brief Write tick-tock sound setting to config file
+ * @param enable TRUE to enable tick sound, FALSE to disable
+ */
+void WriteConfigTickSound(BOOL enable);
 
 /**
  * @brief Get appropriate timer interval based on milliseconds display setting

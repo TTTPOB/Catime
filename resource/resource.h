@@ -128,6 +128,7 @@
 #define CLOCK_IDM_COUNT_UP_RESET 172     /**< Reset count-up timer */
 #define CLOCK_IDM_COUNTDOWN_START_PAUSE 154  /**< Start/pause countdown timer */
 #define CLOCK_IDM_COUNTDOWN_RESET 155    /**< Reset countdown timer */
+#define CLOCK_IDM_TICK_SOUND 189         /**< Toggle tick-tock sound */
 
 /** @brief Startup configuration control identifiers */
 #define CLOCK_IDC_SET_COUNTDOWN_TIME 173 /**< Set countdown time control */

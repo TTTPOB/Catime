@@ -1336,6 +1336,11 @@ LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
                     InvalidateRect(hwnd, NULL, TRUE);
                     break;
                 }
+
+                case CLOCK_IDM_TICK_SOUND: {
+                    WriteConfigTickSound(!CLOCK_TICK_SOUND);
+                    break;
+                }
                 
                 /** Reset countdown timer to initial state */
                 case CLOCK_IDM_COUNTDOWN_RESET: {
