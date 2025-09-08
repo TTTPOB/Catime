@@ -45,6 +45,7 @@
 #define CLOCK_IDM_TIME_FORMAT_ZERO_PADDED 196   /**< Zero-padded format 09:59 */
 #define CLOCK_IDM_TIME_FORMAT_FULL_PADDED 197   /**< Full zero-padded format 00:09:59 */
 #define CLOCK_IDM_TIME_FORMAT_SHOW_MILLISECONDS 198   /**< Show milliseconds in time format */
+#define CLOCK_IDM_TICK_SOUND 189              /**< Toggle tick-tock sound */
 
 /** @brief Startup configuration */
 #define CLOCK_IDC_SET_COUNTDOWN_TIME 173   /**< Set default countdown time */

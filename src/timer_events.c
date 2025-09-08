@@ -84,6 +84,19 @@ extern void ShowCountUp(HWND hwnd);
 
 extern void StopNotificationSound(void);
 
+/** @brief Toggle state for alternating tick and tock tones */
+static BOOL s_tickToggle = FALSE;
+
+/**
+ * @brief Play a short tick-tock beep using Windows Beep
+ * Alternates frequencies to mimic a mechanical clock
+ */
+static void PlayTickTockSound(void) {
+    DWORD freq = s_tickToggle ? 750 : 1000;
+    s_tickToggle = !s_tickToggle;
+    Beep(freq, 50);
+}
+
 /**
  * @brief Convert UTF-8 string to Windows wide character string
  * @param utf8String Input UTF-8 encoded string
@@ -269,7 +282,14 @@ BOOL HandleTimerEvent(HWND hwnd, WPARAM wp) {
         if (ms_accumulator >= 1000) {
             int seconds_to_add = ms_accumulator / 1000;
             ms_accumulator %= 1000;  /** Keep remainder for next time */
-            
+
+            /** Play ticking sound for each elapsed second when enabled */
+            if (CLOCK_TICK_SOUND && !CLOCK_COUNT_UP) {
+                for (int i = 0; i < seconds_to_add && (countdown_elapsed_time + i) < CLOCK_TOTAL_TIME; i++) {
+                    PlayTickTockSound();
+                }
+            }
+
             /** Count-up mode: increment elapsed time by actual seconds */
             if (CLOCK_COUNT_UP) {
                 countup_elapsed_time += seconds_to_add;
